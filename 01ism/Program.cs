@@ -23,7 +23,13 @@ namespace _01ism
 
             Console.WriteLine("Gép választása: {0}", lehetoseg[gepvalasz]);
 
+            int jatekosvalasz;
 
+            Console.WriteLine("kő {0}, papír {1}, olló {2}");
+            Console.Write("Válasz: ");
+            jatekosvalasz = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Játékos választása: {0}", lehetoseg[jatekosvalasz]);
 
             Console.ReadKey();
         }
