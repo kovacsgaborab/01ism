@@ -31,6 +31,21 @@ namespace _01ism
 
             Console.WriteLine("Játékos választása: {0}", lehetoseg[jatekosvalasz]);
 
+            if (lehetoseg[jatekosvalasz]==lehetoseg[gepvalasz])
+            {
+                Console.WriteLine("Az eredmény döntetlen.");
+            }
+            
+            if (lehetoseg[gepvalasz]=="kő" && lehetoseg[jatekosvalasz]=="papír" || lehetoseg[gepvalasz]=="papír" && lehetoseg[jatekosvalasz]=="olló" || lehetoseg[gepvalasz]=="olló" && lehetoseg[jatekosvalasz]=="kő")
+            {
+                Console.WriteLine("A játékos nyert.");
+            }
+
+            if (lehetoseg[gepvalasz] == "kő" && lehetoseg[jatekosvalasz] == "olló" || lehetoseg[gepvalasz] == "papír" && lehetoseg[jatekosvalasz] == "kő" || lehetoseg[gepvalasz] == "olló" && lehetoseg[jatekosvalasz] == "papír")
+            {
+                Console.WriteLine("A gép nyert.");
+            }
+
             Console.ReadKey();
         }
     }
