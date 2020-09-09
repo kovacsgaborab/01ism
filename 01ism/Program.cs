@@ -5,6 +5,19 @@ namespace _01ism
     class Program
     {
         static string[] lehetoseg = new string[] { "kő", "papír", "olló" }; //felsoroljuk az elemeit, és innen tudja hány elemű
+
+        static int gepvalasztas()
+        {
+            Random vel = new Random(); //random változó
+            return vel.Next(0, 3);
+        }
+
+        static int jatekosvalasztas()
+        {
+            Console.WriteLine("kő {0}, papír {1}, olló {2}");
+            Console.Write("Válasz: ");
+            return Convert.ToInt32(Console.ReadLine()); //értéket adunk a jatekosvalasz változónak
+        }
         static void eredmenykiiras(int gep, int ember)
         {
             Console.WriteLine("Gép: {0} --- Játékos: {1}", lehetoseg[gep], lehetoseg[ember]);
@@ -50,19 +63,15 @@ namespace _01ism
             //tortjellegu = 10 % 3.0;                 // % jellel maradékot kapunk vissza
             //Console.WriteLine(tortjellegu);
 
-            Random vel = new Random(); //random változó
 
-            
 
-            int gepvalasz = vel.Next(0, 3);  //választ egy random számot 0-2-ig
+
+
+            int gepvalasz = gepvalasztas(); //választ egy random számot 0-2-ig
 
             //Console.WriteLine("Gép választása: {0}", lehetoseg[gepvalasz]);
 
-            int jatekosvalasz;
-
-            Console.WriteLine("kő {0}, papír {1}, olló {2}");
-            Console.Write("Válasz: ");
-            jatekosvalasz = Convert.ToInt32(Console.ReadLine()); //értéket adunk a jatekosvalasz változónak
+            int jatekosvalasz = jatekosvalasztas();
 
             Console.WriteLine("Játékos választása: {0}", lehetoseg[jatekosvalasz]);
 
