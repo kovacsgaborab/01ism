@@ -4,8 +4,11 @@ namespace _01ism
 {
     class Program
     {
+        static string[] lehetoseg = new string[] { "kő", "papír", "olló" }; //felsoroljuk az elemeit, és innen tudja hány elemű
         static void eredmenykiiras(int gep, int ember)
         {
+            Console.WriteLine("Gép: {0} --- Játékos: {1}", lehetoseg[gep], lehetoseg[ember]);
+
             switch (embernyer(gep, ember))
             {
                 case 0:
@@ -49,7 +52,7 @@ namespace _01ism
 
             Random vel = new Random(); //random változó
 
-            string[] lehetoseg = new string[] { "kő", "papír", "olló" }; //felsoroljuk az elemeit, és innen tudja hány elemű
+            
 
             int gepvalasz = vel.Next(0, 3);  //választ egy random számot 0-2-ig
 
@@ -62,8 +65,6 @@ namespace _01ism
             jatekosvalasz = Convert.ToInt32(Console.ReadLine()); //értéket adunk a jatekosvalasz változónak
 
             Console.WriteLine("Játékos választása: {0}", lehetoseg[jatekosvalasz]);
-
-            Console.WriteLine("Gép: {0} --- Játékos: {1}", lehetoseg[gepvalasz], lehetoseg[jatekosvalasz]);
 
             eredmenykiiras(gepvalasz, jatekosvalasz);
 
