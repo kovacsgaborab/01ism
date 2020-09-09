@@ -4,6 +4,23 @@ namespace _01ism
 {
     class Program
     {
+        static int embernyer(int gep, int ember)
+        {
+            if (ember == gep) //ha ugyanaz, akkor döntetlen
+            {
+                return 0;
+            }
+
+            else if (gep == 0 && ember == 2 || gep == 1 && ember == 0 || gep == 2 && ember == 1)
+            {
+                return 1;
+            }
+
+            else
+            {
+                return 2;
+            }
+        }
         static void Main(string[] args)
         {
             //Console.WriteLine("Hello World!");      // \n - new line, \t - tabulátor
@@ -21,29 +38,29 @@ namespace _01ism
 
             int gepvalasz = vel.Next(0, 3);  //választ egy random számot 0-2-ig
 
-            Console.WriteLine("Gép választása: {0}", lehetoseg[gepvalasz]);
+            //Console.WriteLine("Gép választása: {0}", lehetoseg[gepvalasz]);
 
             int jatekosvalasz;
 
             Console.WriteLine("kő {0}, papír {1}, olló {2}");
             Console.Write("Válasz: ");
-            jatekosvalasz = Convert.ToInt32(Console.ReadLine());
+            jatekosvalasz = Convert.ToInt32(Console.ReadLine()); //értéket adunk a jatekosvalasz változónak
 
             Console.WriteLine("Játékos választása: {0}", lehetoseg[jatekosvalasz]);
 
-            if (lehetoseg[jatekosvalasz]==lehetoseg[gepvalasz])
-            {
-                Console.WriteLine("Az eredmény döntetlen.");
-            }
-            
-            if (lehetoseg[gepvalasz]=="kő" && lehetoseg[jatekosvalasz]=="papír" || lehetoseg[gepvalasz]=="papír" && lehetoseg[jatekosvalasz]=="olló" || lehetoseg[gepvalasz]=="olló" && lehetoseg[jatekosvalasz]=="kő")
-            {
-                Console.WriteLine("A játékos nyert.");
-            }
+            Console.WriteLine("Gép: {0} --- Játékos: {1}", lehetoseg[gepvalasz], lehetoseg[jatekosvalasz]);
 
-            if (lehetoseg[gepvalasz] == "kő" && lehetoseg[jatekosvalasz] == "olló" || lehetoseg[gepvalasz] == "papír" && lehetoseg[jatekosvalasz] == "kő" || lehetoseg[gepvalasz] == "olló" && lehetoseg[jatekosvalasz] == "papír")
+            switch (embernyer(gepvalasz, jatekosvalasz))
             {
-                Console.WriteLine("A gép nyert.");
+                case 0:
+                    Console.WriteLine("Döntetlen!");
+                    break;
+                case 1:
+                    Console.WriteLine("Skynet nyer!");
+                    break;
+                case 2:
+                    Console.WriteLine("Játékos nyer!");
+                    break;
             }
 
             Console.ReadKey();
