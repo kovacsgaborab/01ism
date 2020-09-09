@@ -4,6 +4,21 @@ namespace _01ism
 {
     class Program
     {
+        static void eredmenykiiras(int gep, int ember)
+        {
+            switch (embernyer(gep, ember))
+            {
+                case 0:
+                    Console.WriteLine("Döntetlen!");
+                    break;
+                case 1:
+                    Console.WriteLine("Skynet nyer!");
+                    break;
+                case 2:
+                    Console.WriteLine("Játékos nyer!");
+                    break;
+            }
+        }
         static int embernyer(int gep, int ember)
         {
             if (ember == gep) //ha ugyanaz, akkor döntetlen
@@ -50,18 +65,7 @@ namespace _01ism
 
             Console.WriteLine("Gép: {0} --- Játékos: {1}", lehetoseg[gepvalasz], lehetoseg[jatekosvalasz]);
 
-            switch (embernyer(gepvalasz, jatekosvalasz))
-            {
-                case 0:
-                    Console.WriteLine("Döntetlen!");
-                    break;
-                case 1:
-                    Console.WriteLine("Skynet nyer!");
-                    break;
-                case 2:
-                    Console.WriteLine("Játékos nyer!");
-                    break;
-            }
+            eredmenykiiras(gepvalasz, jatekosvalasz);
 
             Console.ReadKey();
         }
