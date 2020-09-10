@@ -150,13 +150,10 @@ namespace _01ism
 
         private static void statisztikafileba()
         {
-            StreamWriter sw = new StreamWriter("statisztika.txt");
-            for (int i = 0; i < length; i++)
-            {
-                sw.Write(menet, jatekosnyer, gepnyer);
-            }
-
-
+            StreamWriter sw = File.AppendText("statisztika.txt");
+            
+            sw.WriteLine("{0};{1};{2}",menet, jatekosnyer, gepnyer);
+            
             sw.Close();
         }
     }
