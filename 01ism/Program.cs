@@ -52,6 +52,25 @@ namespace _01ism
                 return 2;
             }
         }
+
+        private static bool akarjatszani()
+        {
+            Console.WriteLine("-----------------------------------------------");
+            Console.Write("Tovább [i/n]?");
+            string valasz = Console.ReadLine().ToLower();
+            Console.WriteLine("\n-----------------------------------------------");
+
+            if (valasz == "i")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            //throw new NotImplementedException();
+        }
+
         static void Main(string[] args)
         {
             //Console.WriteLine("Hello World!");      // \n - new line, \t - tabulátor
@@ -65,17 +84,22 @@ namespace _01ism
 
 
 
+            bool tovabb = true;
 
+            while (tovabb)
+            {
+                int gepvalasz = gepvalasztas();
 
-            int gepvalasz = gepvalasztas(); //választ egy random számot 0-2-ig
+                //Console.WriteLine("Gép választása: {0}", lehetoseg[gepvalasz]);
 
-            //Console.WriteLine("Gép választása: {0}", lehetoseg[gepvalasz]);
+                int jatekosvalasz = jatekosvalasztas();
 
-            int jatekosvalasz = jatekosvalasztas();
+                //Console.WriteLine("Játékos választása: {0}", lehetoseg[jatekosvalasz]);
 
-            Console.WriteLine("Játékos választása: {0}", lehetoseg[jatekosvalasz]);
+                eredmenykiiras(gepvalasz, jatekosvalasz);
 
-            eredmenykiiras(gepvalasz, jatekosvalasz);
+                tovabb = akarjatszani();
+            }
 
             Console.ReadKey();
         }
