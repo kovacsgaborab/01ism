@@ -112,6 +112,7 @@ namespace _01ism
             }
 
             statisztikakiiras();
+            statisztikafileba();
 
             Console.ReadKey();
         }
@@ -131,6 +132,7 @@ namespace _01ism
                 {
                     adat[i] = int.Parse(szovegadat[i]);
                 }
+
                 Console.WriteLine("{0} {1} {2}", adat[0], adat[1], adat[2]);
             }
             stat.Close();
@@ -143,6 +145,19 @@ namespace _01ism
             Console.WriteLine("\t Menetek száma: {0}" +
                 "\t Játékos győzelmének száma: {1}" +
                 "\t Gép győzelmének száma: {2}", menet, jatekosnyer, gepnyer);
+
+        }
+
+        private static void statisztikafileba()
+        {
+            StreamWriter sw = new StreamWriter("statisztika.txt");
+            for (int i = 0; i < length; i++)
+            {
+                sw.Write(menet, jatekosnyer, gepnyer);
+            }
+
+
+            sw.Close();
         }
     }
 }
