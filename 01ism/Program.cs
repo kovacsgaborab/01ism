@@ -6,6 +6,10 @@ namespace _01ism
     {
         static string[] lehetoseg = new string[] { "kő", "papír", "olló" }; //felsoroljuk az elemeit, és innen tudja hány elemű
 
+        static int gepnyer = 0;
+        static int jatekosnyer = 0;
+        static int menet = 0;
+
         static int gepvalasztas()
         {
             Random vel = new Random(); //random változó
@@ -18,6 +22,7 @@ namespace _01ism
             Console.Write("Válasz: ");
             return Convert.ToInt32(Console.ReadLine()); //értéket adunk a jatekosvalasz változónak
         }
+
         static void eredmenykiiras(int gep, int ember)
         {
             Console.WriteLine("Gép: {0} --- Játékos: {1}", lehetoseg[gep], lehetoseg[ember]);
@@ -35,6 +40,7 @@ namespace _01ism
                     break;
             }
         }
+
         static int embernyer(int gep, int ember)
         {
             if (ember == gep) //ha ugyanaz, akkor döntetlen
@@ -44,11 +50,13 @@ namespace _01ism
 
             else if (gep == 0 && ember == 2 || gep == 1 && ember == 0 || gep == 2 && ember == 1)
             {
+                gepnyer++;
                 return 1;
             }
 
             else
             {
+                jatekosnyer++;
                 return 2;
             }
         }
@@ -88,6 +96,8 @@ namespace _01ism
 
             while (tovabb)
             {
+                menet++;
+
                 int gepvalasz = gepvalasztas();
 
                 //Console.WriteLine("Gép választása: {0}", lehetoseg[gepvalasz]);
@@ -101,7 +111,16 @@ namespace _01ism
                 tovabb = akarjatszani();
             }
 
+            statisztikakiiras();
+
             Console.ReadKey();
+        }
+
+        private static void statisztikakiiras()
+        {
+            Console.WriteLine("\t Menetek száma: {0}" +
+                "\t Játékos győzelmének száma: {1}" +
+                "\t Gép győzelmének száma: {2}", menet, jatekosnyer, gepnyer);
         }
     }
 }
