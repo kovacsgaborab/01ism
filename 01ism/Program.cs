@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.IO;
 namespace _01ism
 {
     class Program
@@ -90,7 +90,7 @@ namespace _01ism
             //tortjellegu = 10 % 3.0;                 // % jellel maradékot kapunk vissza
             //Console.WriteLine(tortjellegu);
 
-
+            statisztikafilebol();
 
             bool tovabb = true;
 
@@ -114,6 +114,28 @@ namespace _01ism
             statisztikakiiras();
 
             Console.ReadKey();
+        }
+
+        private static void statisztikafilebol()
+        {
+            StreamReader stat = new StreamReader("statisztika.txt");
+
+            
+
+            while (!stat.EndOfStream)
+            {
+                string[] szovegadat = stat.ReadLine().Split(';');
+                int[] adat = new int[3];
+
+                for (int i = 0; i < adat.Length; i++)
+                {
+                    adat[i] = int.Parse(szovegadat[i]);
+                }
+                Console.WriteLine("{0} {1} {2}", adat[0], adat[1], adat[2]);
+            }
+            stat.Close();
+
+            Console.WriteLine("--------------------statisztika vége----------------------");
         }
 
         private static void statisztikakiiras()
